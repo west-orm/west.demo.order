@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<display-name>"UVI Tags"</display-name>
+	<tlib-version>2.2</tlib-version>
+	<short-name>ut</short-name>
+	<uri>/uvi-tags</uri>
+	<!-- 定义标签库中所包含的标签 -->
+	<tag>
+		<description><![CDATA[Pagination分页]]></description>
+		<name>Pagination</name>
+		<tag-class>org.swc.bestpratise.order.tags.PaginationTag</tag-class>
+		<body-content>JSP</body-content>
+			<attribute>
+			<description><![CDATA[排序字段的传值参数名，以此为parameter向action提交排序字段，默认值是page.orderBy]]></description>
+			<name>page</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>	
+	</tag>			
+</taglib>

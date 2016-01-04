@@ -1,0 +1,36 @@
+<a href="ViewServlet?currentPage=1">[1]</a>&nbsp;  
+<c:if test="${sessionScope.pageAmount!=1}">  
+    <c:choose>  
+        <c:when test="${requestScope.currentPage<=5}">  
+            <c:forEach var="i" begin="2" end="${requestScope.currentPage}">  
+                <a href="ViewServlet?currentPage=${i}">[${i }]</a>&nbsp;  
+            </c:forEach>  
+        </c:when>  
+        <c:otherwise>  
+            ...&nbsp;  
+            <c:forEach var="i" begin="${requestScope.currentPage-3}"  
+                end="${requestScope.currentPage}">  
+                <a href="ViewServlet?currentPage=${i}">[${i }]</a>&nbsp;  
+            </c:forEach>  
+        </c:otherwise>  
+    </c:choose>  
+    <c:choose>  
+        <c:when test="${requestScope.currentPage>=sessionScope.pageAmount-4   
+            || sessionScope.pageAmount-4<=0}">  
+            <c:forEach var="i" begin="${requestScope.currentPage+1}"  
+                end="${sessionScope.pageAmount}">  
+                <a href="ViewServlet?currentPage=${i}">[${i }]</a>&nbsp;  
+            </c:forEach>  
+        </c:when>  
+        <c:otherwise>  
+            <c:forEach var="i" begin="${requestScope.currentPage+1}"  
+                end="${requestScope.currentPage+3}">  
+                <a href="ViewServlet?currentPage=${i}">[${i }]</a>&nbsp;  
+            </c:forEach>  
+            ...&nbsp;  
+            <a href="ViewServlet?currentPage=${sessionScope.pageAmount}">  
+                [${sessionScope.pageAmount}]</a>&nbsp;  
+        </c:otherwise>  
+    </c:choose>  
+</c:if>  
+页  
