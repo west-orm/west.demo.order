@@ -16,7 +16,8 @@
 	default-lazy-init="true">
 
 	<description>west配置 </description>
-
+	<bean id="dynamicLoadBean" class="org.swc.bestpratise.order.DynamicLoadBean"></bean>
+	
 	<!-- Jpa Entity Manager 配置 -->
 	<bean id="sessionFactory" class="com.bucuoa.west.orm.core.SessionFactory"> 
 		<property name="connectionManager" ref="connectionManager"/>
@@ -42,11 +43,11 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<!-- production环境 -->
- 	<beans profile="production">
  	
- 	<context:property-placeholder location="classpath*:/application.properties" />  
-  
-		<!-- 数据源配置, 使用Tomcat JDBC连接池 -->
+ 		<beans profile="production">
+	 	<context:property-placeholder location="classpath*:/application.properties" />  
+	
+	<!-- 数据源配置, 使用Tomcat JDBC连接池 -->
 		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
 			<!-- Connection Info -->
 			<property name="driverClassName" value="${jdbc.driver}" />
@@ -65,5 +66,26 @@
 			<property name="minIdle" value="0" />
 			<property name="defaultAutoCommit" value="false" />
 		</bean>
+		
+		<bean id="dataSource1" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			<!-- Connection Info -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+
+			<!-- Connection Pooling Info   -->
+			<property name="validationQuery" value="SELECT 1"></property> 
+		    <property name="testOnReturn" value="false"></property>  
+		    <property name="testWhileIdle" value="false"></property>  
+		  	
+			<property name="testOnBorrow" value="true" />
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
+			<property name="minIdle" value="0" />
+			<property name="defaultAutoCommit" value="false" />
+		</bean>
 	</beans>
+  
+
 </beans>

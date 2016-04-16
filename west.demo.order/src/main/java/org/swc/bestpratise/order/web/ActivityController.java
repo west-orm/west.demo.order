@@ -2,6 +2,7 @@ package org.swc.bestpratise.order.web;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,8 @@ public class ActivityController {
 		entity.setCreater("");
 		entity.setCreateTime(new Date());
 		entity.setUuid(getUUID());
+		int place_id = new Random().nextInt();
+		entity.setPlaceId(place_id);
 		try {
 			Object idx = activityService.saveEntity(entity);
 			
@@ -69,6 +72,8 @@ public class ActivityController {
 		entity.setCreater("");
 		entity.setCreateTime(new Date());
 		entity.setUuid(getUUID());
+		int place_id = new Random().nextInt();
+		entity.setPlaceId(place_id);
 		try {
 			Object idx = activityService.saveEntity(entity);
 			

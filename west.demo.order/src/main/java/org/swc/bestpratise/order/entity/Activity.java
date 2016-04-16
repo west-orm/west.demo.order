@@ -13,8 +13,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.bucuoa.west.orm.core.annotation.ShardDatabase;
+import com.bucuoa.west.orm.core.annotation.ShardKey;
+import com.bucuoa.west.orm.core.annotation.ShardTable;
+
 @Entity
 @Table(name = "activity")
+@ShardDatabase(policy="hash",nums=4)
+@ShardTable(policy="hash",nums=2)
 public class Activity implements Serializable {
 
 	@Transient
@@ -42,7 +48,8 @@ public class Activity implements Serializable {
 
 	@Column(name = "place_name")
 	private String placeName; // 活动场所
-
+	
+	@ShardKey
 	@Column(name = "place_id")
 	private int placeId; // 场所
 

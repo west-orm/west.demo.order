@@ -6,6 +6,6 @@ import org.swc.bestpratise.order.entity.Activity;
 import com.bucuoa.west.orm.extend.spring.SpringEntityDaoBase;
 
 @Repository
-public class ActivityDao extends SpringEntityDaoBase<Activity, Long> {
+public class ActivityDao extends SpringEntityDaoBase<Activity, Long> implements BaseDao<Activity, Long>{
 
 }

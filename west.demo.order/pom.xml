@@ -253,14 +253,6 @@
 
 		<!-- TEST begin -->
 		<dependency>
-			<groupId>io.springside</groupId>
-			<artifactId>springside-core</artifactId>
-			<version>${springside.version}</version>
-			<classifier>tests</classifier>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
